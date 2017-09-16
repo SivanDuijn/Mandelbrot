@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace kruizen
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            this.Paint += Tekenscherm;
+        }
+        public void Tekenscherm(object o, PaintEventArgs pea)
+        {
+            Graphics g = pea.Graphics;
+            Tekenkruisje(Pens.Red, 70, 10, 120);
+            Tekenkruisje(Pens.Green, 10, 0, 50);
+            Tekenkruisje(Pens.DarkBlue, 30, 50, 150);
+            Tekenkruisje(Pens.DeepPink, 60, 60, 200);
+
+            void Tekenkruisje(Pen pen, int x, int y, int x2)
+            {
+                g.DrawLine(pen, x, y, x2, y + x2 - x);
+                g.DrawLine(pen, x2, y, x, y + x2 - x);
+
+            }
+
+
+        }
+
+    }
+}
